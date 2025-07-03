@@ -32,8 +32,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          ref: ${{ env.BRANCH }}
-
+            ref: ${{ github.ref_name }}
       - name: Get Node Version
         run: echo "NODE_VERSION=$(cat .node-version)" >> $GITHUB_ENV
 
@@ -74,3 +73,4 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
+
